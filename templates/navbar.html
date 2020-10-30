@@ -17,7 +17,10 @@
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
+  </ul>
+
 <ul class="navbar-nav">
+
     {% if request.user.is_authenticated %}
 
      <li class="nav-item dropdown">
@@ -25,7 +28,7 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             {% if  profile.photo %}
 
-            <img src="{{ profile.photo.url }}" class="navbar-img"/>
+            <img src="{{  profile.photo.url }}" class="navbar-img"/>
 
             {% else %}
 
@@ -37,7 +40,7 @@
           </a>
 
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="# ">My Profile</a>
+            <a class="dropdown-item" href="{% url 'accounts:profile' %}">My Profile</a>
             <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
           </div>
       </li>
@@ -53,6 +56,5 @@
     
       {% endif %}
 </ul>
-    
   </div>
 </nav>

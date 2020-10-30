@@ -29,7 +29,9 @@ class Post(models.Model):
 	created = models.DateTimeField(auto_now_add=True)
 	updated = models.DateTimeField(auto_now=True)
 	status  = models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft')
-
+	thumbsup = models.IntegerField(default='0')
+	thumbsdown = models.IntegerField(default='0')
+	thumbs = models.ManyToManyField(User, related_name='thumbs',blank=True,default=None)
 	def __str__(self):
 		return self.title
 
@@ -67,5 +69,9 @@ class Comment(models.Model):
     def __str__(self):
         return '{}-{}'.format(self.post.title, str(self.user.username))
     
-	 
+class Vote(models.Model):
+	post =  models.ForeignKey(Post,related_name='postid',blank=True,default=None,on_delete=models.CASCADE)
+	user =  models.ForeignKey(User,related_name='userid',blank=True,default=None,on_delete=models.CASCADE)
+	vote = models.BooleanField(default=True)     
+	     
 	
