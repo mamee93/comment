@@ -1,0 +1,49 @@
+  {% extends "main.html" %} 
+{% block body %}
+  <div class="container">
+        <!--End Header-->
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 m-auto">
+                <div class="card mb-3 mt-5">
+                    <img class="card-img-top" src="..." alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Sign Up</h5>
+
+                        <form method="POST" action="" enctype="multipart/form-data">
+                           {% csrf_token %}
+                           {{form}}
+
+                            <div class="form-group">
+                                <p><span class="require">*</span> - required fields</p>
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">
+    		            Create
+    		        </button>
+                                <button class="btn btn-default">
+    		            Cancel
+    		        </button>
+                            </div>
+
+                        </form>
+
+                    </div>
+
+
+
+                </div>
+            </div>
+
+        </div>
+
+        <footer class="my-5 pt-5 text-muted text-center text-small">
+            <p class="mb-1">© 2017-2020 Company Name</p>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="https://getbootstrap.com/docs/4.5/examples/checkout/#">Privacy</a></li>
+                <li class="list-inline-item"><a href="https://getbootstrap.com/docs/4.5/examples/checkout/#">Terms</a></li>
+                <li class="list-inline-item"><a href="https://getbootstrap.com/docs/4.5/examples/checkout/#">Support</a></li>
+            </ul>
+        </footer>
+    </div>
+    {% endblock %}

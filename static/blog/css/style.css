@@ -1,0 +1,16 @@
+html{
+	position: relative;
+	min-height: 100%;
+}
+body{
+	font-family: 'Lucida  Casaul', 'Comic  Sans MS';
+}
+
+.navbar-nav img{
+	width: 50px;
+	height: 35px;
+	float: left;
+	background-size: auto 100%;
+	margin-right: -5px;
+	margin-top: 5px;
+}

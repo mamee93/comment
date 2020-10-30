@@ -1,0 +1,19 @@
+{% extends "main.html" %} 
+{% block body %}
+
+    <div class="row">
+        {% for list in all_list %}
+		        <div class="col-md-6">
+		            <div class="img-thumbnail">
+		                <a href="{{ list.get_absolute_url}}">{{list.title}}<small style="float: right;">{{list.created}}</small></a><br>
+		                Author : {{list.author}}<br>
+		                {{list.content}}
+		            </div>
+		            <br>
+		        </div>
+        {% endfor %}
+	</div>
+	<a href="{% url 'blog:post_create' %}">Add Post</a>
+ 
+
+{% endblock body%}

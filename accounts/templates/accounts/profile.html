@@ -1,0 +1,8 @@
+  {% extends "main.html" %} 
+{% block body %}
+
+{{profile.user}}
+{{profile.bio}}
+ 
+<a href="{% url 'accounts:edit_profile' profile.id %}">edit</a>
+{% endblock %}

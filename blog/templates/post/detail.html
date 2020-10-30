@@ -1,0 +1,35 @@
+{% extends "main.html" %} 
+{% block body %}
+<div class="row">
+       
+    <div class="col-md-6">
+        <div class="img-thumbnail">
+
+                <a href="#">{{post.title}}<small style="float: right;">{{post.created}}</small></a><br>
+                Author : {{post.author}}<br>
+                {{post.content}}
+
+        </div>
+        {% if post.author == request.user %}
+        <a href="{% url 'blog:post_edit' post.slug %}"> Edit </a>
+        |
+        <a href="{% url 'blog:post_delete' post.slug %}" id="delete"><button type="button" class="btn btn-danger">Delete</button>  </a>
+        {% endif %}
+            <br>
+        
+            
+        <div id="like-section">
+                {% include 'post/like_section.html' %}
+        </div>
+        
+    </div>
+    
+</div> 
+
+<br><br>
+<hr>
+
+<div class="main-comment-section">
+  {% include 'post/comment.html' %}
+</div>
+{% endblock body%}
